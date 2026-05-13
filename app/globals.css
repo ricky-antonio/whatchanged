@@ -5,6 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --color-diff-add-bg: var(--diff-add-bg);
+  --color-diff-add-text: var(--diff-add-text);
+  --color-diff-add-word-bg: var(--diff-add-word-bg);
+  --color-diff-remove-bg: var(--diff-remove-bg);
+  --color-diff-remove-text: var(--diff-remove-text);
+  --color-diff-remove-word-bg: var(--diff-remove-word-bg);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
@@ -49,6 +55,12 @@
 }
 
 :root {
+  --diff-add-bg: #dcfce7;
+  --diff-add-text: #166534;
+  --diff-add-word-bg: #bbf7d0;
+  --diff-remove-bg: #fee2e2;
+  --diff-remove-text: #991b1b;
+  --diff-remove-word-bg: #fecaca;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -84,6 +96,12 @@
 }
 
 .dark {
+  --diff-add-bg: #14532d;
+  --diff-add-text: #bbf7d0;
+  --diff-add-word-bg: #166534;
+  --diff-remove-bg: #7f1d1d;
+  --diff-remove-text: #fecaca;
+  --diff-remove-word-bg: #991b1b;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

@@ -6,7 +6,10 @@
       "Bash(npm install *)",
       "Bash(npx shadcn@latest init --defaults)",
       "Bash(npx shadcn@latest add badge toggle-group)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(npm test *)",
+      "Bash(npm run *)"
     ]
   }
 }
