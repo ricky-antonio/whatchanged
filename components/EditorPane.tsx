@@ -10,8 +10,8 @@ interface Props {
 
 const labelStyle = {
   Original: {
-    dot: 'bg-amber-400',
-    text: 'text-amber-600 dark:text-amber-400',
+    dot: 'bg-orange-400',
+    text: 'text-orange-600 dark:text-orange-400',
   },
   Changed: {
     dot: 'bg-cyan-400',
@@ -24,7 +24,7 @@ export function EditorPane({ label, value, placeholder, onChange, onSample }: Pr
 
   return (
     <div className="flex flex-col flex-[2] min-h-0 min-w-0">
-      <div className="px-4 py-2 flex items-center gap-2 border-b border-border bg-card shrink-0">
+      <div className="px-5 py-3 flex items-center gap-2 border-b border-border bg-card shrink-0">
         <span className={`h-2 w-2 rounded-full shrink-0 ${style.dot}`} />
         <span className={`text-xs font-bold uppercase tracking-widest ${style.text}`}>
           {label}
@@ -43,7 +43,7 @@ export function EditorPane({ label, value, placeholder, onChange, onSample }: Pr
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         spellCheck={false}
-        className="flex-1 resize-none font-mono text-sm p-3 bg-background text-foreground focus:outline-none placeholder:text-muted-foreground/40 min-h-0"
+        className="flex-1 resize-none font-mono text-sm px-5 py-4 bg-background text-foreground focus:outline-none placeholder:text-muted-foreground/40 min-h-0"
       />
     </div>
   )
