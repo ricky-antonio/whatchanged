@@ -21,13 +21,7 @@ const mockResult: DiffResult = {
 describe('Toolbar', () => {
   it('stats badge shows correct counts after diff', () => {
     render(
-      <Toolbar
-        mode="word"
-        onModeChange={noop}
-        diffResult={mockResult}
-        onCompare={noop}
-        onClear={noop}
-      />,
+      <Toolbar mode="word" onModeChange={noop} diffResult={mockResult} onClear={noop} />,
     )
     expect(screen.getByText('+12')).toBeDefined()
     expect(screen.getByText('−4')).toBeDefined()
@@ -35,42 +29,21 @@ describe('Toolbar', () => {
 
   it('stats badge is not shown when diffResult is null', () => {
     render(
-      <Toolbar
-        mode="word"
-        onModeChange={noop}
-        diffResult={null}
-        onCompare={noop}
-        onClear={noop}
-      />,
+      <Toolbar mode="word" onModeChange={noop} diffResult={null} onClear={noop} />,
     )
     expect(screen.queryByText('+0')).toBeNull()
   })
 
   it('dark mode button is present with aria-label', () => {
     render(
-      <Toolbar mode="word" onModeChange={noop} diffResult={null} onCompare={noop} onClear={noop} />,
+      <Toolbar mode="word" onModeChange={noop} diffResult={null} onClear={noop} />,
     )
     expect(screen.getByLabelText('Toggle dark mode')).toBeDefined()
   })
 
-  it('Compare button calls onCompare', async () => {
-    const onCompare = vi.fn()
-    render(
-      <Toolbar
-        mode="word"
-        onModeChange={noop}
-        diffResult={null}
-        onCompare={onCompare}
-        onClear={noop}
-      />,
-    )
-    await userEvent.click(screen.getByText('Compare'))
-    expect(onCompare).toHaveBeenCalledOnce()
-  })
-
   it('mode toggle items are present', () => {
     render(
-      <Toolbar mode="line" onModeChange={noop} diffResult={null} onCompare={noop} onClear={noop} />,
+      <Toolbar mode="line" onModeChange={noop} diffResult={null} onClear={noop} />,
     )
     expect(screen.getByLabelText('Line diff mode')).toBeDefined()
     expect(screen.getByLabelText('Word diff mode')).toBeDefined()

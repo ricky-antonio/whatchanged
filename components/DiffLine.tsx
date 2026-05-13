@@ -5,11 +5,17 @@ interface Props {
   mode: DiffMode
 }
 
-const lineClass: Record<string, string> = {
-  added: 'bg-[var(--diff-add-bg)] text-[var(--diff-add-text)]',
-  removed: 'bg-[var(--diff-remove-bg)] text-[var(--diff-remove-text)]',
-  unchanged: '',
-  placeholder: 'opacity-0 pointer-events-none',
+const lineClass: Record<string, Record<string, string>> = {
+  added: {
+    line: 'bg-[var(--diff-add-bg)] text-[var(--diff-add-text)]',
+    word: 'bg-[color-mix(in_srgb,var(--diff-add-bg)_30%,transparent)] text-[var(--diff-add-text)]',
+  },
+  removed: {
+    line: 'bg-[var(--diff-remove-bg)] text-[var(--diff-remove-text)]',
+    word: 'bg-[color-mix(in_srgb,var(--diff-remove-bg)_30%,transparent)] text-[var(--diff-remove-text)]',
+  },
+  unchanged: { line: '', word: '' },
+  placeholder: { line: 'opacity-0 pointer-events-none', word: 'opacity-0 pointer-events-none' },
 }
 
 const wordClass: Record<string, string> = {
@@ -21,8 +27,10 @@ const wordClass: Record<string, string> = {
 export function DiffLine({ line, mode }: Props) {
   const showWordHighlights = mode === 'word' && line.words && line.words.length > 0
 
+  const lineBg = lineClass[line.type]?.[showWordHighlights ? 'word' : 'line'] ?? ''
+
   return (
-    <div className={`flex min-h-[1.5rem] leading-6 ${lineClass[line.type]}`}>
+    <div className={`flex min-h-[1.5rem] leading-6 ${lineBg}`}>
       {/* gutter */}
       <span className="w-10 shrink-0 select-none text-right pr-3 text-muted-foreground border-r border-border text-xs leading-6">
         {line.lineNumber ?? ''}

@@ -1,7 +1,9 @@
 export function EmptyState() {
   return (
-    <div className="flex flex-1 items-center justify-center text-muted-foreground text-sm select-none">
-      No differences to display
+    <div className="flex flex-1 h-full items-center justify-center">
+      <p className="text-xs text-muted-foreground/40 select-none tracking-wide">
+        type above to see the diff
+      </p>
     </div>
   )
 }

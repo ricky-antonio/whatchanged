@@ -77,6 +77,6 @@ describe('DiffPane', () => {
 
   it('shows empty state when lines array is empty', () => {
     render(<DiffPane label="Original" lines={[]} mode="line" onScroll={noop} />)
-    expect(screen.getByText('No differences to display')).toBeDefined()
+    expect(screen.getByText('type above to see the diff')).toBeDefined()
   })
 })
